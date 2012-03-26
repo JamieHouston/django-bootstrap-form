@@ -27,3 +27,7 @@ def is_checkbox(field):
 @register.filter
 def is_radio(field):
     return field.field.widget.__class__.__name__.lower() == "radioselect"
+
+@register.filter
+def is_file(field): 
+    return field.field.widget.__class__.__name__.lower() == "fileinput"
