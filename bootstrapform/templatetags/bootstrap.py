@@ -11,7 +11,7 @@ def bootstrap(element, icon=None):
         template = get_template("bootstrapform/field.html")
         context_dic = {'field': element}
         if icon:
-            context_dic["icon"] = context_dic
+            context_dic["icon"] = icon
         context = Context(context_dic)
     else:
         template = get_template("bootstrapform/form.html")
