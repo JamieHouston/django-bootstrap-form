@@ -5,11 +5,14 @@ from django import template
 register = template.Library()
 
 @register.filter
-def bootstrap(element):
+def bootstrap(element, icon=None):
     element_type = element.__class__.__name__.lower()
     if element_type == 'boundfield':
         template = get_template("bootstrapform/field.html")
-        context = Context({'field': element})
+        context_dic = {'field': element}
+        if icon:
+            context_dic["icon"] = context_dic
+        context = Context(context_dic)
     else:
         template = get_template("bootstrapform/form.html")
         context = Context({'form': element})
